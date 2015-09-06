@@ -1,0 +1,18 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: Debo
+  description: An Ansible Role that installs Apache on CentOS and Ubuntu specifically created with Phansible in mind.
+  license: MIT
+  min_ansible_version: 1.9
+  platforms:
+  - name: EL
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - precise
+    - trusty
+  categories:
+    - web

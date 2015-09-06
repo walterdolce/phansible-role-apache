@@ -10,8 +10,16 @@ An Ansible Role that installs [Apache](http://httpd.apache.org/) on CentOS and U
 
 ## Role Variables
 
-// TODO
+Available variables are listed below, along with default values (see `defaults/main.yml`):
 
+```yaml
+apache:
+    docroot: "/var/www/html"
+    servername: "phansible.dev"
+```
+
+Add `servername` and `documentroot` set of properties to the default virtualhost.
+  
 ## Dependencies
 
 // TODO

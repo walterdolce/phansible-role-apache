@@ -1,2 +1,4 @@
 ---
-# defaults file for phansible-role-apache
+apache:
+    docroot: "/var/www/html"
+    servername: "phansible.dev"

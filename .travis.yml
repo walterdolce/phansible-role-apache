@@ -5,6 +5,10 @@ python: "2.7"
 env:
   - PLAYBOOK=test.yml
 
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y curl
+
 install:
   # Install Ansible.
   - pip install ansible
@@ -25,3 +29,6 @@ script:
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
+
+  # Request a page via Apache, to make sure Apache is running and responds.
+  - "curl http://localhost/"

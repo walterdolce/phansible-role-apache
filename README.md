@@ -1,6 +1,6 @@
 # Phansible Role: Apache
 
-[![Build Status](https://travis-ci.org/marcodebortoli/phansible-role-apache.svg?branch=master)](https://travis-ci.org/marcodebortoli/phansible-role-apache)
+[![Build Status](https://travis-ci.org/debo/phansible-role-apache.svg?branch=master)](https://travis-ci.org/debo/phansible-role-apache)
 
 An Ansible Role that installs [Apache](http://httpd.apache.org/) on CentOS and Ubuntu specifically created with [Phansible](http://phansible.com/) in mind.
 
@@ -19,7 +19,7 @@ apache:
 ```
 
 Add `servername` and `documentroot` set of properties to the default virtualhost.
-  
+
 ## Dependencies
 
 // TODO

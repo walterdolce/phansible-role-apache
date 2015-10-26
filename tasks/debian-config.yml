@@ -1,9 +1,18 @@
 ---
 - name: Ensure that the document root is not /var/www
-  file: path={{ apache.docroot }} state=directory mode=0755
+  file:
+    path: "{{ apache.docroot }}"
+    state: directory
+    mode: 0755
 
 - name: Ensure an index.html is present in the docroot
-  copy: src=index.html dest="{{ apache.docroot }}/index.html" force=no owner=root group=root mode=0644
+  copy:
+    src: index.html
+    dest: "{{ apache.docroot }}/index.html"
+    force: no
+    owner: root
+    group: root
+    mode: 0644
 
 # Figure out what version of Apache is installed.
 - name: Get installed version of Apache.
@@ -13,12 +22,16 @@
 
 - name: Change default apache2.4 site
   sudo: yes
-  template: src=vhost24.conf.j2 dest=/etc/apache2/sites-available/000-default.conf
+  template:
+    src: vhost24.conf.j2
+    dest: /etc/apache2/sites-available/000-default.conf
   notify: restart apache
   when: apache_version.stdout.find('Apache/2.4.') != -1
 
 - name: Change default apache2.2 site
   sudo: yes
-  template: src=vhost22.conf.j2 dest=/etc/apache2/sites-available/default
+  template:
+    src: vhost22.conf.j2
+    dest: /etc/apache2/sites-available/default
   notify: restart apache
   when: apache_version.stdout.find('Apache/2.2.') != -1

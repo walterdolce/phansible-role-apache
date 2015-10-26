@@ -1,10 +1,14 @@
 ---
 - name: Install Apache
   sudo: yes
-  apt: name=apache2 state=latest
+  apt:
+    name: apache2
+    state: latest
 
 - name: Install Apache Modules
-  apache2_module: state=present name={{ item }}
+  apache2_module:
+    state: present
+    name: "{{ item }}"
   notify: restart apache
   with_items:
     - rewrite
